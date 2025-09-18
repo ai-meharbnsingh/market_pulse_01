@@ -1,0 +1,43 @@
+# MarketPulse Trading Configuration
+trading:
+  mode: "paper"  # paper or live
+  capital: 100000  # Starting capital
+
+risk_management:
+  max_daily_loss: 0.02  # 2%
+  max_position_size: 0.05  # 5% per trade
+  max_concurrent_positions: 6
+  portfolio_heat_limit: 0.06  # 6% total risk
+  kelly_fraction: 0.25  # Conservative Kelly
+
+ml_models:
+  alpha_model:
+    enabled: true
+    confidence_threshold: 0.65
+  lstm:
+    enabled: true
+    timeframes: ["1H", "4H"]
+  prophet:
+    enabled: true
+    timeframes: ["1D", "1W"]
+  retraining:
+    schedule: "monthly"  # YOUR ADDITION
+    auto_retrain: true
+
+execution:
+  paper_trading:
+    slippage: 0.0005  # 0.05%
+    commission: 0.0003  # 0.03%
+  order_types:
+    - "MARKET"
+    - "LIMIT"
+  smart_routing: false  # Deferred to v2
+  auto_execution: false  # Deferred to v2
+
+alerts:
+  telegram:
+    enabled: true
+    risk_alerts: true
+    trade_alerts: true
+  email:
+    enabled: false

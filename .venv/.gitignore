@@ -1,0 +1,46 @@
+# Environment variables
+.env
+*.env
+credentials.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Data files
+*.csv
+*.xlsx
+*.db
+*.sqlite
+
+# Model files
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+# Logs
+*.log
+logs/
+10_DATA_STORAGE/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# API Keys - NEVER commit these!
+01_CORE/config/credentials.env
+**/api_keys.py
+**/secrets.py

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "last_updated_utc": "2025-08-19T10:00:00Z",
+  "profiles": {
+    "openai": {
+      "_default": {
+        "input_cpm": "0.50",
+        "output_cpm": "1.50"
+      },
+      "gpt-4o": {
+        "input_cpm": "5.00",
+        "output_cpm": "15.00"
+      },
+      "gpt-4-turbo": {
+        "input_cpm": "10.00",
+        "output_cpm": "30.00"
+      }
+    },
+    "anthropic": {
+      "_default": {
+        "input_cpm": "0.25",
+        "output_cpm": "1.25"
+      },
+      "claude-3-5-sonnet-20240620": {
+        "input_cpm": "3.00",
+        "output_cpm": "15.00"
+      },
+      "claude-3-opus-20240229": {
+        "input_cpm": "15.00",
+        "output_cpm": "75.00"
+      },
+      "claude-3-haiku-20240307": {
+        "input_cpm": "0.25",
+        "output_cpm": "1.25"
+      },
+      "claude-sonnet-4-20250514": {
+        "input_cpm": "4.00",
+        "output_cpm": "20.00"
+      }
+    },
+    "google_gemini": {
+      "_default": {
+        "input_cpm": "0.25",
+        "output_cpm": "0.75"
+      },
+      "gemini-1.5-flash-latest": {
+        "input_cpm": "0.35",
+        "output_cpm": "1.05"
+      },
+      "gemini-1.5-pro-latest": {
+        "input_cpm": "3.50",
+        "output_cpm": "10.50"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# antifragile_framework/config/resilience_config.yaml
+
+# Configuration for the Antifragile Resilience Framework
+
+# Resilience Score Penalties:
+# Defines the penalties applied to the ResilienceScore (initial score 1.0)
+# for various resilience events during a request's lifecycle.
+# The score is calculated in FailoverEngine and logged in BiasLedgerEntry.
+# A lower score indicates more resilience challenges were encountered.
+resilience_score_penalties:
+  # Base penalties for the final outcome of a request:
+  base_successful_penalty: 0.0 # No penalty for perfect success (request completed on first attempt)
+  mitigated_success_penalty: 0.1 # Small penalty for success achieved after mitigation (e.g., prompt rephrasing)
+
+  # Penalties for specific resilience events that occurred:
+  api_call_failure_penalty: 0.2 # Penalty for an individual API call failure (e.g., 4xx, 5xx errors)
+  api_key_rotation_penalty: 0.05 # Minor penalty for API key exhaustion or explicit rotation
+  model_failover_penalty: 0.1 # Penalty for failing over to a different model within the same provider
+  provider_failover_penalty: 0.15 # Higher penalty for failing over to a completely different provider
+  circuit_tripped_penalty: 0.25 # Significant penalty when a circuit breaker for a provider/key trips (implies repeated failures)
+  all_providers_failed_penalty: 0.5 # Major penalty if all configured providers/models fail for a request
+
+# Example of how other framework configurations might be structured:
+# resource_guard_settings:
+#   key_health_decay_rate: 0.01
+#   failure_cooldown_seconds: 30
+#
+
+# circuit_breaker_settings:
+#   failure_threshold: 5
+#   recovery_timeout_seconds: 60
+#   half_open_test_requests: 1

@@ -1,0 +1,18 @@
+# Personal Risk Limits - NEVER CHANGE IN LIVE TRADING
+hard_limits:
+  absolute_max_loss_per_day: 2000  # ₹ amount
+  absolute_max_loss_per_week: 8000
+  absolute_max_loss_per_month: 20000
+  emergency_stop_loss: 0.10  # 10% portfolio drawdown
+
+position_limits:
+  max_leverage: 1.0  # No leverage initially
+  max_position_value: 50000  # ₹ per position
+  min_position_value: 5000
+
+psychology_rules:
+  max_trades_per_day: 10
+  cooldown_after_loss: 30  # minutes
+  prevent_revenge_trading: true
+  prevent_overtrading: true
+  require_ai_validation: true

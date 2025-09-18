@@ -1,0 +1,22 @@
+resilience_score_penalties:
+  base_successful_penalty: 0.0
+  mitigated_success_penalty: 0.1
+  api_call_failure_penalty: 0.05
+  api_key_rotation_penalty: 0.02
+  model_failover_penalty: 0.03
+  provider_failover_penalty: 0.05
+  circuit_tripped_penalty: 0.1
+  all_providers_failed_penalty: 0.2
+circuit_breaker_defaults:
+  failure_threshold: 3
+  reset_timeout_seconds: 5
+resource_guard_defaults:
+  cooldown_seconds: 10
+  penalty: 0.3
+  healing_interval_seconds: 60
+  healing_increment: 0.2
+learning_engine:
+  enabled: true
+  smoothing_factor: 0.2
+  default_score: 0.75
+  min_requests_threshold: 2
