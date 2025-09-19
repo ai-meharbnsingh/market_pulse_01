@@ -1,4 +1,13 @@
-"""
+
+# Enhanced Trading System Integration (Phase 1, Step 3)
+try:
+    from 01_CORE.integration.enhanced_integration import EnhancedTradingIntegration
+    ENHANCED_TRADING_AVAILABLE = True
+    logger.info("✅ Enhanced trading components loaded")
+except ImportError as e:
+    ENHANCED_TRADING_AVAILABLE = False
+    logger.warning(f"⚠️ Enhanced trading components not available: {e}")
+\n"""
 MarketPulse v2.0 - Main System Orchestrator
 Integrated AI-Powered Trading System
 """
@@ -137,7 +146,7 @@ class MarketPulseSystem:
     def _init_analysis_components(self):
         """Initialize analysis components"""
         try:
-            from integrated_trading_system import IntegratedTradingSystem
+            from integrated_trading_system_real import IntegratedTradingSystem
             self.trading_system = IntegratedTradingSystem(
                 initial_capital=self.config['trading']['capital']
             )

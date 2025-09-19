@@ -1,0 +1,64 @@
+# MarketPulse Database Configuration
+# PostgreSQL + TimescaleDB Settings
+# Location: #06_DATA/database/config/database_config.yaml
+
+# Database Connection
+host: localhost
+port: 5432
+database: marketpulse
+user: marketpulse_user
+password: secure_password_123
+
+# Connection Pooling (SQLAlchemy)
+pool_size: 20              # Number of connections to maintain in pool
+max_overflow: 0            # Additional connections beyond pool_size
+pool_timeout: 30           # Seconds to wait for connection from pool
+pool_recycle: 3600         # Seconds before recreating connections (1 hour)
+
+# Performance Settings
+statement_timeout: 30000   # 30 seconds query timeout
+lock_timeout: 10000        # 10 seconds lock timeout
+idle_in_transaction_session_timeout: 300000  # 5 minutes
+
+# TimescaleDB Settings
+enable_timescaledb: true
+chunk_time_interval: "1 day"    # Chunk data by day for optimal performance
+compression_enabled: true       # Enable compression for old data
+compression_after: "7 days"     # Compress data older than 7 days
+
+# Data Retention Policies
+market_data_retention: "1 year"      # Keep market data for 1 year
+trade_data_retention: "permanent"    # Keep all trade data
+log_data_retention: "3 months"       # Keep logs for 3 months
+prediction_data_retention: "6 months" # Keep ML predictions for 6 months
+
+# Backup and Maintenance
+auto_backup_enabled: true
+backup_schedule: "0 2 * * *"    # Daily at 2 AM
+backup_retention_days: 30
+auto_vacuum_enabled: true
+auto_analyze_enabled: true
+
+# Security Settings
+ssl_mode: prefer
+require_ssl: false
+connection_encryption: true
+
+# Development vs Production
+environment: development
+
+# Production overrides (when environment = production)
+production:
+  pool_size: 50
+  max_overflow: 20
+  enable_query_logging: false
+  require_ssl: true
+  backup_retention_days: 90
+
+# Development overrides
+development:
+  pool_size: 10
+  max_overflow: 5
+  enable_query_logging: true
+  require_ssl: false
+  auto_backup_enabled: false

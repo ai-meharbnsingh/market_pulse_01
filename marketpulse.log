@@ -400,3 +400,242 @@ Starting trading system...
 2025-09-18 18:12:44,178 - MarketPulse - INFO - Positions: 0/6
 2025-09-18 18:12:44,178 - MarketPulse - INFO - Return: 0.00%
 2025-09-18 18:12:44,178 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:13:44,180 - MarketPulse - INFO - 
+--- Market Scan at 18:13:44 ---
+2025-09-18 18:13:44,181 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:13:44,182 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.70)
+2025-09-18 18:13:44,183 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:13:44,184 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:13:44,185 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:13:44,186 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:13:44,186 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:13:44,196 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:13:44,196 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:13:44,196 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:14:44,206 - MarketPulse - INFO - 
+--- Market Scan at 18:14:44 ---
+2025-09-18 18:14:44,207 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:14:44,207 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.00)
+2025-09-18 18:14:44,208 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:14:44,208 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:14:44,208 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:14:44,209 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.22)
+2025-09-18 18:14:44,209 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:14:44,213 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:14:44,213 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:14:44,214 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:15:44,217 - MarketPulse - INFO - 
+--- Market Scan at 18:15:44 ---
+2025-09-18 18:15:44,217 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:15:44,218 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.10)
+2025-09-18 18:15:44,218 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.26)
+2025-09-18 18:15:44,219 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.12)
+2025-09-18 18:15:44,220 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:15:44,220 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.00)
+2025-09-18 18:15:44,220 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:15:44,226 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:15:44,226 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:15:44,227 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:16:44,235 - MarketPulse - INFO - 
+--- Market Scan at 18:16:44 ---
+2025-09-18 18:16:44,235 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:16:44,237 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:16:44,238 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:16:44,238 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.00)
+2025-09-18 18:16:44,239 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:16:44,239 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:16:44,240 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:16:44,248 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:16:44,248 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:16:44,248 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:17:44,258 - MarketPulse - INFO - 
+--- Market Scan at 18:17:44 ---
+2025-09-18 18:17:44,259 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:17:44,260 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:17:44,260 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:17:44,261 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:17:44,261 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:17:44,261 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.00)
+2025-09-18 18:17:44,262 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:17:44,267 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:17:44,268 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:17:44,268 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:18:44,275 - MarketPulse - INFO - 
+--- Market Scan at 18:18:44 ---
+2025-09-18 18:18:44,276 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:18:44,277 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:18:44,277 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:18:44,278 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.00)
+2025-09-18 18:18:44,278 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:18:44,279 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:18:44,279 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:18:44,285 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:18:44,285 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:18:44,285 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:19:44,289 - MarketPulse - INFO - 
+--- Market Scan at 18:19:44 ---
+2025-09-18 18:19:44,290 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:19:44,290 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:19:44,291 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:19:44,291 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:19:44,292 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:19:44,293 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.08)
+2025-09-18 18:19:44,293 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:19:44,299 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:19:44,300 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:19:44,300 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:20:44,315 - MarketPulse - INFO - 
+--- Market Scan at 18:20:44 ---
+2025-09-18 18:20:44,315 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:20:44,316 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:20:44,316 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:20:44,317 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.07)
+2025-09-18 18:20:44,317 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:20:44,318 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:20:44,318 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:20:44,324 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:20:44,325 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:20:44,325 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:21:44,328 - MarketPulse - INFO - 
+--- Market Scan at 18:21:44 ---
+2025-09-18 18:21:44,328 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:21:44,329 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.00)
+2025-09-18 18:21:44,329 - integrated_trading_system - INFO - TCS: SELL (confidence: 0.70)
+2025-09-18 18:21:44,330 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:21:44,330 - integrated_trading_system - INFO - HDFC: SELL (confidence: 0.70)
+2025-09-18 18:21:44,330 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:21:44,331 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:21:44,335 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:21:44,336 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:21:44,336 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:22:44,347 - MarketPulse - INFO - 
+--- Market Scan at 18:22:44 ---
+2025-09-18 18:22:44,347 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:22:44,348 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.70)
+2025-09-18 18:22:44,348 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:22:44,349 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:22:44,349 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:22:44,350 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.00)
+2025-09-18 18:22:44,350 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:22:44,355 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:22:44,355 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:22:44,356 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:23:44,365 - MarketPulse - INFO - 
+--- Market Scan at 18:23:44 ---
+2025-09-18 18:23:44,365 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:23:44,366 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:23:44,366 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:23:44,367 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.00)
+2025-09-18 18:23:44,367 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:23:44,368 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:23:44,368 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:23:44,375 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:23:44,375 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:23:44,375 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:24:44,387 - MarketPulse - INFO - 
+--- Market Scan at 18:24:44 ---
+2025-09-18 18:24:44,387 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:24:44,388 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:24:44,388 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:24:44,389 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:24:44,389 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:24:44,390 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.19)
+2025-09-18 18:24:44,390 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:24:44,396 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:24:44,396 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:24:44,396 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:25:44,399 - MarketPulse - INFO - 
+--- Market Scan at 18:25:44 ---
+2025-09-18 18:25:44,400 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:25:44,400 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.00)
+2025-09-18 18:25:44,401 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:25:44,401 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.00)
+2025-09-18 18:25:44,402 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:25:44,402 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.10)
+2025-09-18 18:25:44,402 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:25:44,408 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:25:44,408 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:25:44,409 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:26:44,413 - MarketPulse - INFO - 
+--- Market Scan at 18:26:44 ---
+2025-09-18 18:26:44,414 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:26:44,414 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:26:44,415 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:26:44,415 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:26:44,416 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:26:44,416 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.00)
+2025-09-18 18:26:44,416 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:26:44,421 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:26:44,421 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:26:44,421 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:27:44,431 - MarketPulse - INFO - 
+--- Market Scan at 18:27:44 ---
+2025-09-18 18:27:44,432 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:27:44,432 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:27:44,433 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:27:44,433 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.35)
+2025-09-18 18:27:44,434 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.00)
+2025-09-18 18:27:44,434 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:27:44,435 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:27:44,440 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:27:44,440 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:27:44,440 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:28:44,449 - MarketPulse - INFO - 
+--- Market Scan at 18:28:44 ---
+2025-09-18 18:28:44,449 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:28:44,449 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.35)
+2025-09-18 18:28:44,450 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:28:44,451 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.00)
+2025-09-18 18:28:44,451 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:28:44,452 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:28:44,452 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:28:44,458 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:28:44,459 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:28:44,459 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:29:44,464 - MarketPulse - INFO - 
+--- Market Scan at 18:29:44 ---
+2025-09-18 18:29:44,464 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:29:44,464 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.00)
+2025-09-18 18:29:44,465 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.35)
+2025-09-18 18:29:44,465 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.15)
+2025-09-18 18:29:44,466 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.11)
+2025-09-18 18:29:44,466 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.35)
+2025-09-18 18:29:44,467 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:29:44,472 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:29:44,472 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:29:44,472 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:30:44,482 - MarketPulse - INFO - 
+--- Market Scan at 18:30:44 ---
+2025-09-18 18:30:44,483 - integrated_trading_system - INFO - Scanning watchlist for signals...
+2025-09-18 18:30:44,484 - integrated_trading_system - INFO - RELIANCE: HOLD (confidence: 0.12)
+2025-09-18 18:30:44,485 - integrated_trading_system - INFO - TCS: HOLD (confidence: 0.00)
+2025-09-18 18:30:44,485 - integrated_trading_system - INFO - INFY: HOLD (confidence: 0.00)
+2025-09-18 18:30:44,486 - integrated_trading_system - INFO - HDFC: HOLD (confidence: 0.35)
+2025-09-18 18:30:44,486 - integrated_trading_system - INFO - ICICI: HOLD (confidence: 0.00)
+2025-09-18 18:30:44,486 - MarketPulse - INFO - 
+--- Portfolio Status ---
+2025-09-18 18:30:44,492 - MarketPulse - INFO - Positions: 0/6
+2025-09-18 18:30:44,492 - MarketPulse - INFO - Return: 0.00%
+2025-09-18 18:30:44,492 - MarketPulse - INFO - Next scan in 60 seconds...
+2025-09-18 18:31:07,070 - MarketPulse - INFO - 
+Stopping MarketPulse...
+2025-09-18 18:31:07,073 - paper_trading_engine - INFO - Portfolio snapshot saved to 10_DATA_STORAGE\paper_trading\snapshot_20250918_183107.json
+2025-09-18 18:31:07,073 - MarketPulse - INFO - Portfolio snapshot saved
+2025-09-18 18:31:07,074 - MarketPulse - INFO - MarketPulse stopped successfully

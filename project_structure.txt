@@ -2,75 +2,150 @@ PROJECT STRUCTURE
 ==================================================
 Project: MarketPulse
 Location: D:\Users\OMEN\MarketPulse
-Generated: 2025-09-18 16:58:10
+Generated: 2025-09-19 09:16:47
 Max Depth: 5
 
 📁 MarketPulse/
+├── 📁 .pytest_cache
+│   ├── 📁 v
+│   │   └── 📁 cache
+│   │       ├── 📄 lastfailed
+│   │       ├── 📄 nodeids
+│   │       └── 📄 stepwise
+│   ├── 📄 CACHEDIR.TAG
+│   └── 📄 README.md
 ├── 📁 01_CORE
-│   └── 📁 antifragile
-│       ├── 📁 api
-│       │   ├── 📄 __init__.py
-│       │   └── 📄 framework_api.py
-│       ├── 📁 config
-│       │   ├── 📄 __init__.py
-│       │   ├── 📄 config_loader.py
-│       │   ├── 📄 provider_profiles.json
-│       │   ├── 📄 resilience_config.yaml
-│       │   ├── 📄 resilience_config_fast.yaml
-│       │   ├── 📄 risk_limits.yaml
-│       │   ├── 📄 schemas.py
-│       │   └── 📄 settings.yaml
-│       ├── 📁 core
-│       │   ├── 📄 __init__.py
-│       │   ├── 📄 circuit_breaker.py
-│       │   ├── 📄 exceptions.py
-│       │   ├── 📄 failover_engine.py
-│       │   ├── 📄 learning_engine.py
-│       │   ├── 📄 online_learning_subscriber.py
-│       │   ├── 📄 provider_ranking_engine.py
-│       │   ├── 📄 resource_guard.py
-│       │   └── 📄 schemas.py
-│       ├── 📁 providers
-│       │   ├── 📁 provider_adapters
-│       │   │   ├── 📄 __init__.py
-│       │   │   ├── 📄 claude_adapter.py
-│       │   │   ├── 📄 gemini_adapter.py
-│       │   │   └── 📄 openai_adapter.py
-│       │   ├── 📄 __init__.py
-│       │   ├── 📄 api_abstraction_layer.py
-│       │   ├── 📄 checkkkk.md
-│       │   └── 📄 provider_registry.py
-│       ├── 📁 resilience
-│       │   ├── 📄 __init__.py
-│       │   ├── 📄 bias_ledger.py
-│       │   ├── 📄 llm_based_rewriter.py
-│       │   └── 📄 prompt_rewriter.py
-│       ├── 📁 utils
-│       │   ├── 📄 __init__.py
-│       │   └── 📄 error_parser.py
-│       └── 📄 __init__.py
+│   ├── 📁 antifragile
+│   │   ├── 📁 api
+│   │   │   ├── 📄 __init__.py
+│   │   │   └── 📄 framework_api.py
+│   │   ├── 📁 config
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 config_loader.py
+│   │   │   ├── 📄 provider_profiles.json
+│   │   │   ├── 📄 resilience_config.yaml
+│   │   │   ├── 📄 resilience_config_fast.yaml
+│   │   │   ├── 📄 risk_limits.yaml
+│   │   │   ├── 📄 schemas.py
+│   │   │   └── 📄 settings.yaml
+│   │   ├── 📁 core
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 circuit_breaker.py
+│   │   │   ├── 📄 exceptions.py
+│   │   │   ├── 📄 failover_engine.py
+│   │   │   ├── 📄 learning_engine.py
+│   │   │   ├── 📄 online_learning_subscriber.py
+│   │   │   ├── 📄 provider_ranking_engine.py
+│   │   │   ├── 📄 resource_guard.py
+│   │   │   └── 📄 schemas.py
+│   │   ├── 📁 providers
+│   │   │   ├── 📁 provider_adapters
+│   │   │   │   ├── 📄 __init__.py
+│   │   │   │   ├── 📄 claude_adapter.py
+│   │   │   │   ├── 📄 gemini_adapter.py
+│   │   │   │   └── 📄 openai_adapter.py
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 api_abstraction_layer.py
+│   │   │   └── 📄 provider_registry.py
+│   │   ├── 📁 resilience
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 bias_ledger.py
+│   │   │   ├── 📄 llm_based_rewriter.py
+│   │   │   └── 📄 prompt_rewriter.py
+│   │   ├── 📁 utils
+│   │   │   ├── 📄 __init__.py
+│   │   │   └── 📄 error_parser.py
+│   │   └── 📄 __init__.py
+│   ├── 📁 config
+│   ├── 📁 integration
+│   │   ├── 📄 __init__.py
+│   │   └── 📄 enhanced_integration.py
+│   └── 📁 logging
 ├── 📁 02_ANALYSIS
+│   ├── 📁 enhanced
+│   │   └── 📄 enhanced_trading_system.py
+│   ├── 📁 fundamental
+│   ├── 📁 sentiment
 │   └── 📁 technical
 │       └── 📄 indicators.py
 ├── 📁 03_ML_ENGINE
-│   └── 📁 models
-│       ├── 📄 alpha_model.py
-│       └── 📄 lstm_intraday.py
+│   ├── 📁 backtesting
+│   │   └── 📄 backtesting_framework.py
+│   ├── 📁 features
+│   ├── 📁 models
+│   │   ├── 📄 alpha_model.py
+│   │   └── 📄 lstm_intraday.py
+│   └── 📁 retraining
 ├── 📁 04_RISK
 │   └── 📄 risk_calculator.py
+├── 📁 05_EXECUTION
+│   ├── 📁 alerts
+│   │   └── 📄 telegram_alerts.py
+│   ├── 📁 broker
+│   └── 📁 paper_trading
+│       └── 📄 paper_trading_engine.py
 ├── 📁 06_DATA
-│   └── 📁 streaming
-│       └── 📄 websocket_service.py
+│   ├── 📁 database
+│   │   ├── 📁 config
+│   │   │   └── 📄 database_config.yaml
+│   │   ├── 📄 __init__.py
+│   │   ├── 📄 db_setup.py
+│   │   ├── 📄 models.py
+│   │   ├── 📄 models_sqlite.py
+│   │   └── 📄 test_database.py
+│   ├── 📁 enhanced
+│   │   └── 📄 data_fetcher.py
+│   ├── 📁 historical
+│   ├── 📁 streaming
+│   │   └── 📄 websocket_service.py
+│   └── 📄 marketpulse.db
 ├── 📁 07_DASHBOARD
-│   └── 📁 components
-│       ├── 📄 chart_components.py
-│       ├── 📄 confluence_dashboard.py
-│       └── 📄 ml_performance_dashboard.py
-├── 📄 MarketPulse_Complete_Features_List.md
-├── 📄 migrate_existing_code.py
+│   ├── 📁 components
+│   │   ├── 📄 chart_components.py
+│   │   ├── 📄 confluence_dashboard.py
+│   │   └── 📄 ml_performance_dashboard.py
+│   ├── 📁 enhanced
+│   │   └── 📄 enhanced_dashboard.py
+│   ├── 📁 pages
+│   └── 📄 dashboard_app.py
+├── 📁 08_TESTS
+│   └── 📁 phase1_step3
+│       └── 📄 test_enhanced_strategies.py
+├── 📁 09_DOCS
+│   ├── 📁 context
+│   │   └── 📄 context_summary.md
+│   └── 📁 scripts
+│       └── 📄 cleanup_phase1_step2.py
+├── 📁 10_DATA_STORAGE
+│   ├── 📁 alerts
+│   ├── 📁 backtest_results
+│   ├── 📁 logs
+│   ├── 📁 models
+│   └── 📁 paper_trading
+│       └── 📄 snapshot_20250918_183107.json
+├── 📄 change_log.md
+├── 📄 fix_database_cache.py
+├── 📄 hybrid_database_setup.py
+├── 📄 main.py
+├── 📄 marketpulse.db
+├── 📄 marketpulse.log
+├── 📄 marketpulse_backup.db
+├── 📄 master_doc.md
+├── 📄 minimal_db_test.py
+├── 📄 native_database_setup.py
+├── 📄 next_sesssion.md
+├── 📄 organize_phase1_step3_files.py
+├── 📄 project_structure.txt
+├── 📄 quick_db_test.py
+├── 📄 README.md
+├── 📄 requirements.txt
+├── 📄 setup_database.py
 ├── 📄 show_structure.py
+├── 📄 test_marketpulse.db
+├── 📄 test_report.json
+├── 📄 verify_bot.py
 └── 📄 verify_keys.py
 
 ==================================================
-Total items displayed: 64
+Total items displayed: 139
 Generated by Project Structure Generator
