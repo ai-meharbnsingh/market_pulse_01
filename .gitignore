@@ -1,292 +1,49 @@
-# MarketPulse .gitignore - Comprehensive
-
-# =============================================================================
-# SENSITIVE FILES (NEVER COMMIT)
-# =============================================================================
-
-# Environment files
-.env
-.env.local
-.env.production
-.env.staging
+# Python virtual environments
+venv/
+env/
+.venv/
+.env/
 *.env
 
-# API Keys and credentials
-**/api_keys.txt
-**/credentials.json
-**/secrets.yaml
-config/api_credentials.py
-
-# Database files with real data
-*.db
-*.sqlite
-*.sqlite3
-marketpulse.db
-marketpulse_backup.db
-test_marketpulse.db
-
-# =============================================================================
-# PYTHON
-# =============================================================================
-
-# Byte-compiled / optimized / DLL files
+# Python bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Virtual environments
-venv/
-.venv/
-env/
-.env/
-ENV/
-env.bak/
-venv.bak/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# PEP 582
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# =============================================================================
-# TRADING & FINANCIAL DATA
-# =============================================================================
-
-# Live trading data
-**/live_trades.json
-**/real_portfolio.json
-**/broker_credentials.json
-
-# Historical data caches
-**/historical_cache/
-**/price_data/
-**/market_data_cache/
-
-# Trading logs with sensitive info
-**/live_trading.log
-**/execution_logs/
-**/order_logs/
-
-# Backtest results with large datasets
-**/backtest_results/*.json
-**/backtest_results/*.csv
-**/large_datasets/
-
-# Model files (can be large)
-**/models/*.pkl
-**/models/*.joblib
-**/models/*.h5
-**/models/*.pt
-**/trained_models/
-
-# =============================================================================
-# DATA STORAGE
-# =============================================================================
-
-# Large data files
-*.csv
-*.xlsx
-*.json
-!requirements.json
-!package.json
-!config.json
-
-# Temporary files
-tmp/
-temp/
-.tmp/
-*.tmp
-*.temp
-
-# Data storage directories
-10_DATA_STORAGE/alerts/*.json
-10_DATA_STORAGE/logs/*.log
-10_DATA_STORAGE/backtest_results/*
-10_DATA_STORAGE/models/*
-!10_DATA_STORAGE/*/README.md
-
-# =============================================================================
-# LOGS & MONITORING
-# =============================================================================
-
-# Log files
-*.log
-logs/
-**/*.log
-**/logs/
-
-# Monitoring data
-**/monitoring/
-**/metrics/
-**/performance_data/
-
-# =============================================================================
-# SYSTEM & IDE
-# =============================================================================
-
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-
-# Linux
-*~
-.fuse_hidden*
-.directory
-.Trash-*
-
-# IDEs
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# =============================================================================
-# WEB & DASHBOARD
-# =============================================================================
+# Jupyter Notebook
+.ipynb_checkpoints
 
-# Node modules (if using any JS)
+# Logs and databases
+*.log
+*.sqlite3
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Sensitive or local configuration
+config.ini
+local_settings.py
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Streamlit
-.streamlit/
+# Project-specific exclusions
+*.backup
+*.tmp
 
-# =============================================================================
-# TESTING & DEVELOPMENT
-# =============================================================================
-
-# Test artifacts
-.pytest_cache/
-.coverage
-htmlcov/
-test-results/
-
-# Development databases
-dev.db
-test.db
-development.sqlite
-
-# =============================================================================
-# DOCUMENTATION
-# =============================================================================
-
-# Generated docs
-docs/_build/
-docs/build/
-
-# =============================================================================
-# CUSTOM MARKERS (Keep these)
-# =============================================================================
-
-# Keep important empty directories
-!**/README.md
-!**/.gitkeep
-
-# Keep configuration templates
-!**/*_template.*
-!**/config_example.*
-!**/settings_example.*
-
-# Keep requirements and setup files
-!requirements.txt
-!setup.py
-!pyproject.toml
-!Pipfile
-
-# =============================================================================
-# END OF GITIGNORE
-# =============================================================================
+# Exclude any additional sensitive or local files
+secrets.json
+local_config.py
