@@ -1,16 +1,15 @@
-# 06_DATA/indian_stock_universe.py
+# 06_DATA/indian_stock_data_fetcher_corrected.py
 """
-Indian Stock Universe for BSE/NSE Trading
-Comprehensive stock selection for Indian markets with proper categorization
+CORRECTED Indian Stock Data Fetcher
+Fixes database path and persistence issues
 
-Features:
-- Large Cap, Mid Cap, Small Cap categorization
-- Sector-wise distribution
-- NSE and BSE symbols
-- Market cap based selection
-- Liquidity considerations
+Key Fixes:
+1. Consistent database path usage
+2. Proper error handling for data writing
+3. Verification of data persistence
+4. Better transaction handling
 
-Location: #06_DATA/indian_stock_universe.py
+Location: #06_DATA/indian_stock_data_fetcher_corrected.py
 """
 
 import yfinance as yf
@@ -18,358 +17,307 @@ import pandas as pd
 import sqlite3
 from datetime import datetime, timedelta
 import logging
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 import time
+import numpy as np
+import os
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class IndianStockUniverse:
-    """Comprehensive Indian stock universe for ML training"""
+class FixedIndianStockDataFetcher:
+    """Fixed data fetcher with proper database persistence for Indian stocks"""
 
-    def __init__(self, db_path: str = "marketpulse_production.db"):
-        self.db_path = db_path
+    def __init__(self, db_path: str = "06_DATA/marketpulse_training.db"):
+        # Ensure absolute path for consistency
+        if not os.path.isabs(db_path):
+            self.db_path = os.path.abspath(db_path)
+        else:
+            self.db_path = db_path
+
         self.indian_universe = self._create_indian_universe()
 
-    def _create_indian_universe(self) -> Dict[str, Dict[str, List[str]]]:
-        """Create comprehensive Indian stock universe with proper categorization"""
+        # Ensure database directory exists
+        db_dir = os.path.dirname(self.db_path)
+        if db_dir:
+            os.makedirs(db_dir, exist_ok=True)
 
-        universe = {
-            # LARGE CAP (Market Cap > ₹20,000 Cr) - Top 100 companies
+        logger.info(f"Database path: {self.db_path}")
+
+    def _create_indian_universe(self) -> Dict[str, Dict[str, List[str]]]:
+        """Create comprehensive Indian stock universe"""
+        return {
             'large_cap': {
                 'banking_finance': [
                     'HDFCBANK.NS', 'ICICIBANK.NS', 'SBIN.NS', 'KOTAKBANK.NS',
-                    'AXISBANK.NS', 'INDUSINDBK.NS', 'BANKBARODA.NS', 'PNB.NS',
-                    'FEDERALBNK.NS', 'IDFCFIRSTB.NS', 'BAJFINANCE.NS', 'BAJAJFINSV.NS',
-                    'HDFCLIFE.NS', 'ICICIPRULI.NS', 'SBILIFE.NS', 'LICI.NS'
+                    'AXISBANK.NS', 'INDUSINDBK.NS', 'BAJFINANCE.NS', 'BAJAJFINSV.NS'
                 ],
-
                 'information_technology': [
-                    'TCS.NS', 'INFY.NS', 'HCLTECH.NS', 'WIPRO.NS', 'TECHM.NS',
-                    'LTI.NS', 'MINDTREE.NS', 'MPHASIS.NS', 'COFORGE.NS', 'PERSISTENT.NS'
+                    'TCS.NS', 'INFY.NS', 'HCLTECH.NS', 'WIPRO.NS', 'TECHM.NS'
                 ],
-
-                'oil_gas_energy': [
-                    'RELIANCE.NS', 'ONGC.NS', 'IOC.NS', 'BPCL.NS', 'HINDPETRO.NS',
-                    'GAIL.NS', 'COALINDIA.NS', 'NTPC.NS', 'POWERGRID.NS', 'ADANIGREEN.NS'
+                'energy_oil_gas': [
+                    'RELIANCE.NS', 'ONGC.NS', 'IOC.NS', 'BPCL.NS', 'HINDPETRO.NS'
                 ],
-
-                'automobiles': [
-                    'MARUTI.NS', 'TATAMOTORS.NS', 'M&M.NS', 'BAJAJ-AUTO.NS',
-                    'HEROMOTOCO.NS', 'TVSMOTORS.NS', 'EICHERMOT.NS', 'ASHOKLEY.NS'
+                'automobile': [
+                    'MARUTI.NS', 'TATAMOTORS.NS', 'M&M.NS', 'BAJAJ-AUTO.NS', 'EICHERMOT.NS'
                 ],
-
-                'pharmaceuticals': [
-                    'SUNPHARMA.NS', 'DRREDDY.NS', 'CIPLA.NS', 'DIVISLAB.NS',
-                    'BIOCON.NS', 'LUPIN.NS', 'AUROPHARMA.NS', 'CADILAHC.NS'
-                ],
-
-                'fmcg_consumer': [
-                    'HINDUNILVR.NS', 'ITC.NS', 'NESTLEIND.NS', 'BRITANNIA.NS',
-                    'DABUR.NS', 'MARICO.NS', 'GODREJCP.NS', 'COLPAL.NS'
-                ],
-
-                'metals_mining': [
-                    'TATASTEEL.NS', 'JSWSTEEL.NS', 'HINDALCO.NS', 'VEDL.NS',
-                    'NMDC.NS', 'SAIL.NS', 'JINDALSTEL.NS', 'MOIL.NS'
-                ],
-
-                'cement': [
-                    'ULTRACEMCO.NS', 'SHREECEM.NS', 'GRASIM.NS', 'ACC.NS',
-                    'AMBUJACEMENT.NS', 'JKCEMENT.NS', 'RAMCOCEM.NS'
-                ],
-
-                'telecom': [
-                    'BHARTIARTL.NS', 'IDEA.NS', 'RCOM.NS'
-                ],
-
-                'infrastructure': [
-                    'LT.NS', 'ADANIPORTS.NS', 'ADANIENT.NS', 'GMRINFRA.NS'
+                'pharmaceutical': [
+                    'SUNPHARMA.NS', 'DRREDDY.NS', 'CIPLA.NS', 'DIVISLAB.NS', 'BIOCON.NS'
                 ]
             },
-
-            # MID CAP (Market Cap ₹5,000-20,000 Cr) - Rank 101-250
             'mid_cap': {
-                'banking_finance': [
-                    'BANDHANBNK.NS', 'RBLBANK.NS', 'YESBANK.NS', 'CANBK.NS',
-                    'UNIONBANK.NS', 'INDIANB.NS', 'ICICIGI.NS', 'SBICARD.NS'
+                'telecom': [
+                    'BHARTIARTL.NS', 'IDEA.NS'
                 ],
-
-                'information_technology': [
-                    'LTTS.NS', 'HEXAWARE.NS', 'CYIENT.NS', 'OFSS.NS',
-                    'KPITTECH.NS', 'RATEGAIN.NS', 'ROUTE.NS'
+                'fmcg': [
+                    'HINDUNILVR.NS', 'ITC.NS', 'NESTLEIND.NS', 'BRITANNIA.NS'
                 ],
-
-                'pharmaceuticals': [
-                    'TORNTPHARM.NS', 'ALKEM.NS', 'ABBOTINDIA.NS', 'PFIZER.NS',
-                    'GLAXO.NS', 'IPCALAB.NS', 'LALPATHLAB.NS'
-                ],
-
-                'automobiles': [
-                    'ESCORTS.NS', 'SONACOMS.NS', 'MOTHERSUMI.NS', 'BALKRISIND.NS',
-                    'APOLLOTYRE.NS', 'MRF.NS', 'CEAT.NS'
-                ],
-
-                'consumer_goods': [
-                    'PIDILITIND.NS', 'BATINDIA.NS', 'MCDOWELL-N.NS', 'JUBLFOOD.NS',
-                    'TATACONSUM.NS', 'EMAMILTD.NS', 'VSTIND.NS'
-                ],
-
-                'textiles': [
-                    'PAGEIND.NS', 'AIAENG.NS', 'WELCORP.NS', 'TRIDENT.NS'
-                ],
-
-                'chemicals': [
-                    'BALRAMCHIN.NS', 'DEEPAKNTR.NS', 'GNFC.NS', 'CHAMBLFERT.NS',
-                    'TATACHEM.NS', 'NAVINFLUO.NS'
-                ],
-
-                'real_estate': [
-                    'DLF.NS', 'GODREJPROP.NS', 'OBEROIRLTY.NS', 'PRESTIGE.NS',
-                    'BRIGADE.NS', 'SOBHA.NS'
-                ]
-            },
-
-            # SMALL CAP (Market Cap ₹500-5,000 Cr) - Rank 251+
-            'small_cap': {
-                'specialty_chemicals': [
-                    'CLEAN.NS', 'FINPIPE.NS', 'ROSSARI.NS', 'ANUPAMRASAYAN.NS',
-                    'CHEMCON.NS', 'TATVA.NS'
-                ],
-
-                'pharmaceuticals': [
-                    'STAR.NS', 'JBCHEPHARM.NS', 'CAPLIPOINT.NS', 'LAURUS.NS',
-                    'SEQUENT.NS', 'SUVEN.NS'
-                ],
-
-                'engineering': [
-                    'TIINDIA.NS', 'THERMAX.NS', 'CUMMINSIND.NS', 'KIRLOSENG.NS',
-                    'ELECON.NS', 'KEI.NS'
-                ],
-
-                'textiles': [
-                    'GARFIBRES.NS', 'RSWM.NS', 'NIITLTD.NS', 'JCHAC.NS'
-                ],
-
-                'metals': [
-                    'APARINDS.NS', 'KALYANKJIL.NS', 'RATNAMANI.NS', 'MANAPPURAM.NS'
-                ],
-
-                'consumer_discretionary': [
-                    'RELAXO.NS', 'VIP.NS', 'BATA.NS', 'CROMPTON.NS',
-                    'HAVELLS.NS', 'WHIRLPOOL.NS'
-                ],
-
-                'logistics': [
-                    'BLUEDART.NS', 'GATI.NS', 'CONCOR.NS', 'ALLCARGO.NS'
-                ],
-
-                'agriculture': [
-                    'RALLIS.NS', 'COROMANDEL.NS', 'KRIBHCO.NS', 'ZUARI.NS'
+                'infrastructure': [
+                    'LT.NS', 'ULTRACEMCO.NS', 'GRASIM.NS', 'SHREECEM.NS'
                 ]
             }
         }
 
-        return universe
-
-    def get_comprehensive_stock_list(self, include_small_cap: bool = True) -> List[str]:
-        """Get comprehensive list of Indian stocks for training"""
-
-        all_stocks = []
-
-        # Add Large Cap stocks
-        for sector in self.indian_universe['large_cap'].values():
-            all_stocks.extend(sector)
-
-        # Add Mid Cap stocks
-        for sector in self.indian_universe['mid_cap'].values():
-            all_stocks.extend(sector)
-
-        # Add Small Cap stocks (optional)
-        if include_small_cap:
-            for sector in self.indian_universe['small_cap'].values():
-                all_stocks.extend(sector)
-
-        # Remove duplicates and sort
-        all_stocks = sorted(list(set(all_stocks)))
-
-        logger.info(f"Created comprehensive Indian stock universe with {len(all_stocks)} stocks")
-        return all_stocks
-
-    def get_stocks_by_market_cap(self, market_cap: str) -> List[str]:
-        """Get stocks by market cap category"""
-
-        if market_cap.lower() not in ['large_cap', 'mid_cap', 'small_cap']:
-            raise ValueError("market_cap must be 'large_cap', 'mid_cap', or 'small_cap'")
-
-        stocks = []
-        for sector in self.indian_universe[market_cap.lower()].values():
-            stocks.extend(sector)
-
-        return sorted(list(set(stocks)))
-
-    def get_stocks_by_sector(self, sector: str, market_cap: str = None) -> List[str]:
-        """Get stocks by sector, optionally filtered by market cap"""
-
-        stocks = []
-
-        if market_cap:
-            if sector in self.indian_universe[market_cap]:
-                stocks = self.indian_universe[market_cap][sector]
-        else:
-            # Search across all market caps
-            for cap in self.indian_universe.values():
-                if sector in cap:
-                    stocks.extend(cap[sector])
-
-        return sorted(list(set(stocks)))
-
-    def get_market_cap_distribution(self) -> Dict[str, int]:
-        """Get distribution of stocks by market cap"""
-
-        distribution = {}
-        for market_cap, sectors in self.indian_universe.items():
-            count = 0
-            for sector_stocks in sectors.values():
-                count += len(sector_stocks)
-            distribution[market_cap] = count
-
-        return distribution
-
-    def get_sector_distribution(self) -> Dict[str, Dict[str, int]]:
-        """Get distribution of stocks by sector within each market cap"""
-
-        distribution = {}
-        for market_cap, sectors in self.indian_universe.items():
-            distribution[market_cap] = {}
-            for sector, stocks in sectors.items():
-                distribution[market_cap][sector] = len(stocks)
-
-        return distribution
-
     def create_training_database_schema(self):
-        """Create database schema with market cap and sector categorization"""
+        """Create enhanced database schema for Indian stock training data"""
 
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        logger.info(f"Creating database schema at: {self.db_path}")
 
-        # Create enhanced market_data table with categorization
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS market_data_enhanced (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                symbol TEXT NOT NULL,
-                symbol_clean TEXT NOT NULL,  -- Without .NS suffix
-                company_name TEXT,
-                market_cap_category TEXT NOT NULL,  -- large_cap, mid_cap, small_cap
-                sector TEXT NOT NULL,
-                timestamp DATETIME NOT NULL,
-                open_price REAL NOT NULL,
-                high_price REAL NOT NULL,
-                low_price REAL NOT NULL,
-                close_price REAL NOT NULL,
-                volume INTEGER NOT NULL,
-                adj_close REAL,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                UNIQUE(symbol, timestamp)
-            )
-        """)
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
 
-        # Create index for efficient querying
-        cursor.execute("""
-            CREATE INDEX IF NOT EXISTS idx_market_data_enhanced_symbol_time 
-            ON market_data_enhanced(symbol, timestamp)
-        """)
+            # Create enhanced market data table
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS market_data_enhanced (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    symbol TEXT NOT NULL,
+                    symbol_clean TEXT NOT NULL,
+                    market_cap_category TEXT NOT NULL,
+                    sector TEXT NOT NULL,
+                    timestamp TEXT NOT NULL,
+                    open_price REAL NOT NULL,
+                    high_price REAL NOT NULL,
+                    low_price REAL NOT NULL,
+                    close_price REAL NOT NULL,
+                    volume INTEGER NOT NULL,
+                    adj_close REAL NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    UNIQUE(symbol, timestamp)
+                )
+            """)
 
-        cursor.execute("""
-            CREATE INDEX IF NOT EXISTS idx_market_data_enhanced_category 
-            ON market_data_enhanced(market_cap_category, sector)
-        """)
+            # Create indexes for faster queries
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_symbol_timestamp 
+                ON market_data_enhanced(symbol, timestamp)
+            """)
 
-        conn.commit()
-        conn.close()
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_market_cap_sector 
+                ON market_data_enhanced(market_cap_category, sector)
+            """)
 
-        logger.info("Enhanced database schema created with market cap and sector categorization")
+            conn.commit()
 
-    def populate_sample_data(self, days: int = 30):
-        """Populate database with sample data from comprehensive Indian universe"""
+            # Verify table creation
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='market_data_enhanced'")
+            if cursor.fetchone():
+                logger.info("Database schema created successfully")
+            else:
+                logger.error("Failed to create database schema")
 
-        # Get comprehensive stock list (excluding small cap for initial training)
-        stocks = self.get_comprehensive_stock_list(include_small_cap=False)
+        except Exception as e:
+            logger.error(f"Database schema creation failed: {e}")
+            raise
+        finally:
+            if conn:
+                conn.close()
 
-        logger.info(f"Starting data population for {len(stocks)} Indian stocks...")
+    def test_database_connection(self) -> bool:
+        """Test database connection and basic operations"""
 
-        # Create database schema
+        logger.info("Testing database connection...")
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            # Test basic operations
+            cursor.execute("SELECT 1")
+            result = cursor.fetchone()
+
+            if result and result[0] == 1:
+                logger.info("Database connection successful")
+
+                # Check if tables exist
+                cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+                tables = [row[0] for row in cursor.fetchall()]
+                logger.info(f"Available tables: {tables}")
+
+                conn.close()
+                return True
+            else:
+                logger.error("Database connection test failed")
+                conn.close()
+                return False
+
+        except Exception as e:
+            logger.error(f"Database connection error: {e}")
+            return False
+
+    def populate_training_data(self, days: int = 30, max_stocks: int = 10) -> Tuple[int, int]:
+        """Populate database with Indian stock training data with verified persistence"""
+
+        logger.info(f"Starting data population for up to {max_stocks} Indian stocks...")
+
+        # Create database schema first
         self.create_training_database_schema()
 
-        conn = sqlite3.connect(self.db_path)
+        # Test database connection
+        if not self.test_database_connection():
+            logger.error("Database connection failed - aborting data population")
+            return 0, 0
+
+        # Get stock list
+        stocks = []
+        for market_cap, sectors in self.indian_universe.items():
+            for sector, stock_list in sectors.items():
+                stocks.extend(stock_list)
+
+        # Limit to manageable number for testing
+        stocks = stocks[:max_stocks]
 
         successful_stocks = 0
         failed_stocks = 0
+        total_records_inserted = 0
 
-        for i, symbol in enumerate(stocks[:50]):  # Start with top 50 for testing
+        # Process each stock
+        for i, symbol in enumerate(stocks):
             try:
-                logger.info(f"Fetching data for {symbol} ({i + 1}/{min(50, len(stocks))})")
+                logger.info(f"Processing {symbol} ({i + 1}/{len(stocks)})")
 
-                # Determine market cap and sector
+                # Get market cap and sector
                 market_cap, sector = self._get_stock_category(symbol)
 
                 # Fetch historical data
                 end_date = datetime.now()
                 start_date = end_date - timedelta(days=days)
 
-                # Use yf.download instead of ticker.download
-                hist = yf.download(symbol, start=start_date, end=end_date, progress=False)
+                # Use yfinance to fetch data
+                ticker = yf.Ticker(symbol)
+                hist = ticker.history(start=start_date, end=end_date)
 
                 if not hist.empty:
-                    # Prepare data for insertion
-                    for date, row in hist.iterrows():
-                        cursor = conn.cursor()
-                        cursor.execute("""
-                            INSERT OR REPLACE INTO market_data_enhanced 
-                            (symbol, symbol_clean, market_cap_category, sector, timestamp, 
-                             open_price, high_price, low_price, close_price, volume, adj_close)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                        """, (
-                            symbol,
-                            symbol.replace('.NS', ''),
-                            market_cap,
-                            sector,
-                            date.strftime('%Y-%m-%d'),
-                            float(row['Open']),
-                            float(row['High']),
-                            float(row['Low']),
-                            float(row['Close']),
-                            int(row['Volume']),
-                            float(row['Adj Close'])
-                        ))
+                    records_inserted = self._insert_stock_data(symbol, hist, market_cap, sector)
 
-                    conn.commit()
-                    successful_stocks += 1
-                    logger.info(f"✅ Successfully added {len(hist)} records for {symbol}")
+                    if records_inserted > 0:
+                        successful_stocks += 1
+                        total_records_inserted += records_inserted
+                        logger.info(f"Successfully added {records_inserted} records for {symbol}")
+                    else:
+                        failed_stocks += 1
+                        logger.warning(f"No records inserted for {symbol}")
                 else:
                     failed_stocks += 1
-                    logger.warning(f"⚠️ No data available for {symbol}")
+                    logger.warning(f"No data available for {symbol}")
 
-                # Rate limiting to avoid API limits
-                time.sleep(0.1)
+                # Rate limiting
+                time.sleep(0.5)
 
             except Exception as e:
                 failed_stocks += 1
-                logger.error(f"❌ Failed to fetch data for {symbol}: {e}")
+                logger.error(f"Failed to process {symbol}: {e}")
                 continue
 
-        conn.close()
+        # Verify data persistence
+        final_count = self._verify_data_persistence()
 
         logger.info(f"""
-        📊 DATA POPULATION COMPLETE:
-        ✅ Successful: {successful_stocks} stocks
-        ❌ Failed: {failed_stocks} stocks
-        📈 Total records: {successful_stocks * days} (approx)
+        DATA POPULATION COMPLETE:
+        Successful: {successful_stocks} stocks
+        Failed: {failed_stocks} stocks
+        Records inserted: {total_records_inserted} 
+        Records verified: {final_count}
         """)
 
         return successful_stocks, failed_stocks
+
+    def _insert_stock_data(self, symbol: str, hist: pd.DataFrame, market_cap: str, sector: str) -> int:
+        """Insert stock data with transaction safety and verification"""
+
+        inserted_count = 0
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            for date, row in hist.iterrows():
+                try:
+                    cursor.execute("""
+                        INSERT OR REPLACE INTO market_data_enhanced 
+                        (symbol, symbol_clean, market_cap_category, sector, timestamp, 
+                         open_price, high_price, low_price, close_price, volume, adj_close)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """, (
+                        symbol,
+                        symbol.replace('.NS', ''),
+                        market_cap,
+                        sector,
+                        date.strftime('%Y-%m-%d'),
+                        float(row['Open']),
+                        float(row['High']),
+                        float(row['Low']),
+                        float(row['Close']),
+                        int(row['Volume']),
+                        float(row['Close'])  # Use Close as Adj Close fallback
+                    ))
+                    inserted_count += 1
+
+                except Exception as e:
+                    logger.warning(f"Failed to insert record for {symbol} on {date}: {e}")
+                    continue
+
+            # Commit transaction
+            conn.commit()
+
+            # Verify insertion
+            cursor.execute("SELECT COUNT(*) FROM market_data_enhanced WHERE symbol = ?", (symbol,))
+            verified_count = cursor.fetchone()[0]
+
+            if verified_count != inserted_count:
+                logger.warning(f"Insert/verify mismatch for {symbol}: {inserted_count} vs {verified_count}")
+
+            conn.close()
+            return inserted_count
+
+        except Exception as e:
+            logger.error(f"Database insertion error for {symbol}: {e}")
+            return 0
+
+    def _verify_data_persistence(self) -> int:
+        """Verify that data was actually persisted to database"""
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+
+            cursor.execute("SELECT COUNT(*) FROM market_data_enhanced")
+            total_count = cursor.fetchone()[0]
+
+            cursor.execute("SELECT COUNT(DISTINCT symbol) FROM market_data_enhanced")
+            unique_symbols = cursor.fetchone()[0]
+
+            logger.info(f"Verification: {total_count} total records, {unique_symbols} unique symbols")
+
+            conn.close()
+            return total_count
+
+        except Exception as e:
+            logger.error(f"Data verification failed: {e}")
+            return 0
 
     def _get_stock_category(self, symbol: str) -> Tuple[str, str]:
         """Get market cap category and sector for a stock"""
@@ -379,88 +327,106 @@ class IndianStockUniverse:
                 if symbol in stocks:
                     return market_cap, sector
 
-        # Default if not found
         return 'unknown', 'unknown'
 
     def get_training_statistics(self) -> Dict:
-        """Get statistics about the training data"""
+        """Get statistics about the training data with proper error handling"""
 
-        conn = sqlite3.connect(self.db_path)
+        logger.info(f"Reading statistics from: {self.db_path}")
 
-        stats = {}
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
 
-        # Total stocks and records
-        cursor = conn.cursor()
-        cursor.execute("SELECT COUNT(DISTINCT symbol) FROM market_data_enhanced")
-        stats['total_stocks'] = cursor.fetchone()[0]
+            stats = {}
 
-        cursor.execute("SELECT COUNT(*) FROM market_data_enhanced")
-        stats['total_records'] = cursor.fetchone()[0]
+            # Check if table exists
+            cursor.execute("""
+                SELECT name FROM sqlite_master 
+                WHERE type='table' AND name='market_data_enhanced'
+            """)
 
-        # Market cap distribution
-        cursor.execute("""
-            SELECT market_cap_category, COUNT(DISTINCT symbol) 
-            FROM market_data_enhanced 
-            GROUP BY market_cap_category
-        """)
-        stats['market_cap_distribution'] = dict(cursor.fetchall())
+            if not cursor.fetchone():
+                logger.warning("market_data_enhanced table does not exist")
+                conn.close()
+                return {'error': 'No data table found', 'database_path': self.db_path}
 
-        # Sector distribution
-        cursor.execute("""
-            SELECT sector, COUNT(DISTINCT symbol) 
-            FROM market_data_enhanced 
-            GROUP BY sector
-        """)
-        stats['sector_distribution'] = dict(cursor.fetchall())
+            # Total stocks and records
+            cursor.execute("SELECT COUNT(DISTINCT symbol) FROM market_data_enhanced")
+            stats['total_stocks'] = cursor.fetchone()[0]
 
-        # Date range
-        cursor.execute("SELECT MIN(timestamp), MAX(timestamp) FROM market_data_enhanced")
-        date_range = cursor.fetchone()
-        stats['date_range'] = {
-            'start': date_range[0],
-            'end': date_range[1]
-        }
+            cursor.execute("SELECT COUNT(*) FROM market_data_enhanced")
+            stats['total_records'] = cursor.fetchone()[0]
 
-        conn.close()
+            # Market cap distribution
+            cursor.execute("""
+                SELECT market_cap_category, COUNT(DISTINCT symbol) 
+                FROM market_data_enhanced 
+                GROUP BY market_cap_category
+            """)
+            stats['market_cap_distribution'] = dict(cursor.fetchall())
 
-        return stats
+            # Sector distribution
+            cursor.execute("""
+                SELECT sector, COUNT(DISTINCT symbol) 
+                FROM market_data_enhanced 
+                GROUP BY sector
+            """)
+            stats['sector_distribution'] = dict(cursor.fetchall())
+
+            # Date range
+            cursor.execute("SELECT MIN(timestamp), MAX(timestamp) FROM market_data_enhanced")
+            date_range = cursor.fetchone()
+            stats['date_range'] = {
+                'start': date_range[0],
+                'end': date_range[1]
+            }
+
+            # Add database path for debugging
+            stats['database_path'] = self.db_path
+
+            conn.close()
+            return stats
+
+        except Exception as e:
+            logger.error(f"Statistics retrieval failed: {e}")
+            return {'error': str(e), 'database_path': self.db_path}
 
 
 def main():
-    """Main function to set up comprehensive Indian stock universe"""
-    print("🇮🇳 SETTING UP COMPREHENSIVE INDIAN STOCK UNIVERSE")
-    print("=" * 60)
+    """Main function with comprehensive testing and verification"""
+    print("FIXED INDIAN STOCK DATA POPULATION")
+    print("=" * 50)
 
-    universe = IndianStockUniverse()
+    # Create fetcher with explicit path
+    fetcher = FixedIndianStockDataFetcher()
 
-    # Show universe statistics
-    distribution = universe.get_market_cap_distribution()
-    print("\n📊 STOCK UNIVERSE COMPOSITION:")
-    print(f"Large Cap: {distribution['large_cap']} stocks")
-    print(f"Mid Cap: {distribution['mid_cap']} stocks")
-    print(f"Small Cap: {distribution['small_cap']} stocks")
-    print(f"Total Universe: {sum(distribution.values())} stocks")
+    print(f"Database location: {fetcher.db_path}")
 
-    # Show sector distribution
-    sector_dist = universe.get_sector_distribution()
-    print("\n🏢 SECTOR DISTRIBUTION:")
-    for market_cap, sectors in sector_dist.items():
-        print(f"\n{market_cap.upper()}:")
-        for sector, count in sectors.items():
-            print(f"  {sector}: {count} stocks")
+    # Test database connection first
+    if not fetcher.test_database_connection():
+        print("Database connection failed - check database setup")
+        return
 
-    # Populate database with comprehensive data
-    print("\n🔄 POPULATING DATABASE WITH INDIAN MARKET DATA...")
-    successful, failed = universe.populate_sample_data(days=60)
+    print("\nPOPULATING DATABASE WITH INDIAN MARKET DATA...")
+    successful, failed = fetcher.populate_training_data(days=30, max_stocks=10)
 
-    # Show training statistics
-    print("\n📈 TRAINING DATA STATISTICS:")
-    stats = universe.get_training_statistics()
-    print(f"Total Stocks: {stats['total_stocks']}")
-    print(f"Total Records: {stats['total_records']}")
-    print(f"Date Range: {stats['date_range']['start']} to {stats['date_range']['end']}")
+    # Show statistics with error handling
+    print("\nTRAINING DATA STATISTICS:")
+    stats = fetcher.get_training_statistics()
 
-    print("\n🎯 READY FOR ML TRAINING ON COMPREHENSIVE INDIAN MARKET DATA!")
+    if 'error' not in stats:
+        print(f"Total Stocks: {stats['total_stocks']}")
+        print(f"Total Records: {stats['total_records']}")
+        print(f"Date Range: {stats['date_range']['start']} to {stats['date_range']['end']}")
+        print(f"Market Cap Distribution: {stats['market_cap_distribution']}")
+        print(f"Sector Distribution: {stats['sector_distribution']}")
+        print(f"Database Path: {stats['database_path']}")
+    else:
+        print(f"Error retrieving statistics: {stats['error']}")
+        print(f"Database Path: {stats.get('database_path', 'Unknown')}")
+
+    print("\nFIXED DATA FETCHING COMPLETE!")
 
 
 if __name__ == "__main__":
