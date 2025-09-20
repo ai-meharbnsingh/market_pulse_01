@@ -87,7 +87,7 @@ class PerformanceDatabase:
             # Create in project's data storage
             db_dir = Path("10_DATA_STORAGE/performance")
             db_dir.mkdir(parents=True, exist_ok=True)
-            db_path = str(db_dir / "performance_metrics.db")
+            db_path = str(db_dir / "marketpulse_performance.db")
 
         self.db_path = db_path
         self._init_database()

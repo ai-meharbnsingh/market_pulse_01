@@ -71,7 +71,7 @@ def get_files_to_keep():
         'README.md',
 
         # Database files
-        'marketpulse.db',
+        'marketpulse_production.db',
         'native_database_setup.py',
 
         # Working data pipeline
@@ -236,7 +236,7 @@ def show_final_status():
 
     # Show essential directories and key files
     structure = {
-        'Root': ['main.py', 'integrated_trading_system.py', 'requirements.txt', 'marketpulse.db'],
+        'Root': ['main.py', 'integrated_trading_system.py', 'requirements.txt', 'marketpulse_production.db'],
         '01_CORE/': ['antifragile/ (framework)'],
         '02_ANALYSIS/': ['technical/indicators.py'],
         '03_ML_ENGINE/': ['models/ (alpha_model.py, lstm_intraday.py)'],

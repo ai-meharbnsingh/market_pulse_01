@@ -400,7 +400,7 @@ class EnhancedTradingSystem:
     Enhanced trading system with advanced technical analysis
     """
 
-    def __init__(self, db_path: str = "marketpulse.db"):
+    def __init__(self, db_path: str = "marketpulse_production.db"):
         self.db_path = db_path
 
         # Initialize data fetcher

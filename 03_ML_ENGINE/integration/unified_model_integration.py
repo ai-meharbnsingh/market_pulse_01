@@ -126,7 +126,7 @@ class UnifiedModelIntegration:
     - Intelligent fallback strategies
     """
 
-    def __init__(self, db_path: str = "marketpulse.db", tier: SystemTier = SystemTier.STANDARD):
+    def __init__(self, db_path: str = "marketpulse_production.db", tier: SystemTier = SystemTier.STANDARD):
         """
         Initialize Unified Model Integration Framework
 
@@ -935,7 +935,7 @@ class UnifiedModelIntegration:
 
 # Factory function for easy instantiation
 def create_unified_model_integration(tier: str = "standard",
-                                     db_path: str = "marketpulse.db") -> UnifiedModelIntegration:
+                                     db_path: str = "marketpulse_production.db") -> UnifiedModelIntegration:
     """
     Factory function to create UnifiedModelIntegration
 

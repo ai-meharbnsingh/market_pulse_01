@@ -135,7 +135,7 @@ class MLErrorHandler:
             if db_path is None:
                 db_dir = Path("10_DATA_STORAGE/ml_reliability")
                 db_dir.mkdir(parents=True, exist_ok=True)
-                db_path = str(db_dir / "error_tracking.db")
+                db_path = str(db_dir / "marketpulse_performance.db")
 
             self.db_path = db_path
 

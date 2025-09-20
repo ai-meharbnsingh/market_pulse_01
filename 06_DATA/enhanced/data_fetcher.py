@@ -14,7 +14,7 @@ import random
 class MarketDataFetcher:
     """Working data fetcher with timestamp fix"""
 
-    def __init__(self, db_path="marketpulse.db"):
+    def __init__(self, db_path="marketpulse_production.db"):
         self.db_path = Path(db_path)
         self.demo_mode = True
         self.demo_symbols = ['SPY', 'AAPL', 'MSFT', 'GOOGL', 'RELIANCE.NS']

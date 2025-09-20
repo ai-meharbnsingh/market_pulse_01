@@ -127,7 +127,7 @@ class TimeSeriesForecaster:
         self.ensemble_weights = {}
 
         # Database connection
-        self.db_path = "data/marketpulse.db"
+        self.db_path = "marketpulse_production.db"
         self._init_database()
 
         logger.info("✅ Time-Series Forecaster initialized")

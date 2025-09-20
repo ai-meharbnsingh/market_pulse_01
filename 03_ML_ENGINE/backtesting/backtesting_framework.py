@@ -23,7 +23,7 @@ class BacktestingEngine:
     Comprehensive backtesting engine for strategy validation
     """
 
-    def __init__(self, db_path: str = "marketpulse.db", initial_capital: float = 100000):
+    def __init__(self, db_path: str = "marketpulse_production.db", initial_capital: float = 100000):
         self.db_path = db_path
         self.initial_capital = initial_capital
         self.reset_portfolio()

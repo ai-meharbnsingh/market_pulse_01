@@ -100,7 +100,7 @@ class ProductionPerformanceOptimizer:
 
     def __init__(self, target_latency_ms: float = 20.0,
                  cache_strategy: CacheStrategy = CacheStrategy.BALANCED,
-                 db_path: str = "marketpulse.db"):
+                 db_path: str = "marketpulse_production.db"):
         """
         Initialize Production Performance Optimizer
 

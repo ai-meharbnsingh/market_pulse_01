@@ -110,7 +110,7 @@ class PersistentMonitoringDashboard:
     - Comprehensive system health analysis
     """
 
-    def __init__(self, db_path: str = "marketpulse.db",
+    def __init__(self, db_path: str = "marketpulse_production.db",
                  monitoring_interval: int = 10,
                  alert_thresholds: Optional[Dict[str, float]] = None):
         """

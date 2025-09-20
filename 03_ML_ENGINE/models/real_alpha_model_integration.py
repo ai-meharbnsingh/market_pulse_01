@@ -120,7 +120,7 @@ class RealAlphaModelCore:
     - Real-time performance metrics
     """
 
-    def __init__(self, db_path: str = "marketpulse.db", tier: ModelTier = ModelTier.STANDARD):
+    def __init__(self, db_path: str = "marketpulse_production.db", tier: ModelTier = ModelTier.STANDARD):
         """
         Initialize Real Alpha Model with circuit breaker protection
 
@@ -677,7 +677,7 @@ class RealAlphaModelCore:
 
 
 # Factory function for easy instantiation
-def create_real_alpha_model(tier: str = "standard", db_path: str = "marketpulse.db") -> RealAlphaModelCore:
+def create_real_alpha_model(tier: str = "standard", db_path: str = "marketpulse_production.db") -> RealAlphaModelCore:
     """
     Factory function to create RealAlphaModelCore with proper tier
 

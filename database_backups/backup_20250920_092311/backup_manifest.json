@@ -1,0 +1,17 @@
+{
+  "backup_timestamp": "20250920_092311",
+  "original_databases": {
+    "marketpulse.db": "D:\\Users\\OMEN\\MarketPulse\\marketpulse.db",
+    "marketpulse_production.db": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_production.db",
+    "marketpulse_backup.db": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_backup.db",
+    "marketpulse_backup_20250919_181135.db": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_backup_20250919_181135.db",
+    "data/marketpulse.db": "D:\\Users\\OMEN\\MarketPulse\\data\\marketpulse.db",
+    "06_DATA/marketpulse.db": "D:\\Users\\OMEN\\MarketPulse\\06_DATA\\marketpulse.db",
+    "streaming_data.db": "D:\\Users\\OMEN\\MarketPulse\\streaming_data.db",
+    "test_marketpulse_final_1758279253.db": "D:\\Users\\OMEN\\MarketPulse\\test_marketpulse_final_1758279253.db",
+    "test_phase3_live_trading.db": "D:\\Users\\OMEN\\MarketPulse\\test_phase3_live_trading.db",
+    "10_DATA_STORAGE/ml_reliability/error_tracking.db": "D:\\Users\\OMEN\\MarketPulse\\10_DATA_STORAGE\\ml_reliability\\error_tracking.db",
+    "10_DATA_STORAGE/performance/performance_metrics.db": "D:\\Users\\OMEN\\MarketPulse\\10_DATA_STORAGE\\performance\\performance_metrics.db"
+  },
+  "backup_location": "D:\\Users\\OMEN\\MarketPulse\\database_backups\\backup_20250920_092311"
+}

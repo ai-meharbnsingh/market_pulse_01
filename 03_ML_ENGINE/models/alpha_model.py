@@ -57,7 +57,7 @@ class AlphaModelCore:
         self.models_dir.mkdir(parents=True, exist_ok=True)
 
         # Database connection for trade hypotheses
-        self.db_path = "data/marketpulse.db"
+        self.db_path = "marketpulse_production.db"
         self._init_database()
 
         # ML Models - Ensemble Approach

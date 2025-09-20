@@ -30,7 +30,7 @@ st.set_page_config(
 class EnhancedDashboard:
     """Enhanced dashboard with real market data integration"""
 
-    def __init__(self, db_path: str = "marketpulse.db"):
+    def __init__(self, db_path: str = "marketpulse_production.db"):
         self.db_path = db_path
 
     def get_market_data(self, symbol: str = None, days: int = 30) -> pd.DataFrame:
@@ -420,7 +420,7 @@ def main():
 
     # Get available symbols
     try:
-        conn = sqlite3.connect("marketpulse.db")
+        conn = sqlite3.connect("marketpulse_production.db")
         cursor = conn.cursor()
         cursor.execute("SELECT DISTINCT symbol FROM market_data ORDER BY symbol")
         available_symbols = [row[0] for row in cursor.fetchall()]

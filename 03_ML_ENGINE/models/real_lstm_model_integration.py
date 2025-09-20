@@ -139,7 +139,7 @@ class RealLSTMModelCore:
     - Database integration for model performance tracking
     """
 
-    def __init__(self, db_path: str = "marketpulse.db", tier: TimeSeriesTier = TimeSeriesTier.STANDARD,
+    def __init__(self, db_path: str = "marketpulse_production.db", tier: TimeSeriesTier = TimeSeriesTier.STANDARD,
                  sequence_length: int = 60, prediction_horizons: List[int] = [1, 5, 15]):
         """
         Initialize Real LSTM Model with circuit breaker protection
@@ -750,7 +750,7 @@ class RealLSTMModelCore:
 
 
 # Factory function for easy instantiation
-def create_real_lstm_model(tier: str = "standard", db_path: str = "marketpulse.db",
+def create_real_lstm_model(tier: str = "standard", db_path: str = "marketpulse_production.db",
                            sequence_length: int = 60, horizons: List[int] = [1, 5, 15]) -> RealLSTMModelCore:
     """
     Factory function to create RealLSTMModelCore with proper tier

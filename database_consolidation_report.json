@@ -1,0 +1,159 @@
+{
+  "consolidation_timestamp": "2025-09-20T09:23:11.638983",
+  "original_databases": 11,
+  "target_databases": 3,
+  "databases_analyzed": {
+    "marketpulse.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\marketpulse.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "marketpulse_production.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_production.db",
+      "size_mb": 0.08,
+      "tables": {
+        "market_data_live": 0,
+        "sqlite_sequence": 1,
+        "real_time_quotes": 0,
+        "connection_health_log": 1,
+        "trading_orders": 0,
+        "portfolio_positions": 0,
+        "trading_signals": 0,
+        "system_health": 0
+      },
+      "total_records": 2,
+      "status": "accessible"
+    },
+    "marketpulse_backup.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_backup.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "marketpulse_backup_20250919_181135.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_backup_20250919_181135.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "data/marketpulse.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\data\\marketpulse.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "06_DATA/marketpulse.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\06_DATA\\marketpulse.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "streaming_data.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\streaming_data.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "test_marketpulse_final_1758279253.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\test_marketpulse_final_1758279253.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "test_phase3_live_trading.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\test_phase3_live_trading.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "10_DATA_STORAGE/ml_reliability/error_tracking.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\10_DATA_STORAGE\\ml_reliability\\error_tracking.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    },
+    "10_DATA_STORAGE/performance/performance_metrics.db": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\10_DATA_STORAGE\\performance\\performance_metrics.db",
+      "size_mb": 0.0,
+      "tables": {},
+      "total_records": 0,
+      "status": "accessible"
+    }
+  },
+  "migration_results": {
+    "production": 0,
+    "training": 0,
+    "performance": 0
+  },
+  "cleanup_results": {
+    "deleted": [
+      "marketpulse.db",
+      "marketpulse_backup.db",
+      "marketpulse_backup_20250919_181135.db",
+      "data/marketpulse.db",
+      "06_DATA/marketpulse.db",
+      "streaming_data.db",
+      "test_marketpulse_final_1758279253.db",
+      "test_phase3_live_trading.db",
+      "10_DATA_STORAGE/ml_reliability/error_tracking.db",
+      "10_DATA_STORAGE/performance/performance_metrics.db"
+    ],
+    "kept": [
+      "marketpulse_production.db"
+    ],
+    "errors": []
+  },
+  "new_database_structure": {
+    "production": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\marketpulse_production.db",
+      "purpose": "Live trading operations",
+      "tables": [
+        "market_data_live",
+        "real_time_quotes",
+        "trading_orders",
+        "portfolio_positions",
+        "trading_signals",
+        "system_health"
+      ]
+    },
+    "training": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\06_DATA\\marketpulse_training.db",
+      "purpose": "ML training with 170+ Indian stocks",
+      "tables": [
+        "market_data_training",
+        "model_training_results",
+        "feature_data",
+        "ml_predictions",
+        "backtest_results"
+      ]
+    },
+    "performance": {
+      "path": "D:\\Users\\OMEN\\MarketPulse\\10_DATA_STORAGE\\marketpulse_performance.db",
+      "purpose": "Analytics and monitoring",
+      "tables": [
+        "trading_performance",
+        "ml_model_performance",
+        "system_performance",
+        "error_log",
+        "risk_metrics"
+      ]
+    }
+  },
+  "recommendations": [
+    "Use marketpulse_production.db for all live trading operations",
+    "Use marketpulse_training.db for ML model development and training",
+    "Use marketpulse_performance.db for analytics and monitoring",
+    "Run indian_stock_universe.py to populate training database",
+    "Update application code to use new database structure"
+  ]
+}

@@ -2,7 +2,7 @@ PROJECT STRUCTURE
 ==================================================
 Project: MarketPulse
 Location: D:\Users\OMEN\MarketPulse
-Generated: 2025-09-19 13:23:22
+Generated: 2025-09-20 08:51:22
 Max Depth: 5
 
 📁 MarketPulse/
@@ -74,26 +74,48 @@ Max Depth: 5
 │   │   ├── 📄 __init__.py
 │   │   └── 📄 backtesting_framework.py
 │   ├── 📁 features
+│   ├── 📁 integration
+│   │   ├── 📄 enhanced_model_integration.py
+│   │   ├── 📄 latency_optimizer.py
+│   │   ├── 📄 real_model_framework.py
+│   │   └── 📄 unified_model_integration.py
 │   ├── 📁 models
 │   │   ├── 📁 alpha_model
 │   │   │   └── 📄 alpha_core.py
 │   │   ├── 📄 __init__.py
+│   │   ├── 📄 advanced_mock_models.py
 │   │   ├── 📄 alpha_model.py
 │   │   ├── 📄 lstm_intraday.py
 │   │   ├── 📄 ml_signal_enhancer.py
+│   │   ├── 📄 real_alpha_model_integration.py
+│   │   ├── 📄 real_lstm_model_integration.py
 │   │   └── 📄 timeseries_forecaster.py
+│   ├── 📁 monitoring
+│   │   └── 📄 persistent_monitoring_dashboard.py
+│   ├── 📁 optimization
+│   │   └── 📄 production_performance_optimizer.py
+│   ├── 📁 performance
+│   │   └── 📄 performance_logger.py
+│   ├── 📁 reliability
+│   │   ├── 📄 __init__.py
+│   │   ├── 📄 circuit_breaker.py
+│   │   ├── 📄 error_handler.py
+│   │   ├── 📄 monitoring_dashboard.py
+│   │   └── 📄 test_runner.py
 │   ├── 📁 retraining
 │   └── 📁 tests
 │       ├── 📄 __init__.py
 │       └── 📄 test_ml_signal_enhancer.py
 ├── 📁 04_RISK
+│   ├── 📄 advanced_risk_management.py
 │   └── 📄 risk_calculator.py
 ├── 📁 05_EXECUTION
 │   ├── 📁 alerts
 │   │   └── 📄 telegram_alerts.py
 │   ├── 📁 broker
-│   └── 📁 paper_trading
-│       └── 📄 paper_trading_engine.py
+│   ├── 📁 paper_trading
+│   │   └── 📄 paper_trading_engine.py
+│   └── 📄 live_trading_engine.py
 ├── 📁 06_DATA
 │   ├── 📁 database
 │   │   ├── 📁 config
@@ -102,6 +124,8 @@ Max Depth: 5
 │   │   ├── 📄 db_setup.py
 │   │   ├── 📄 models.py
 │   │   ├── 📄 models_sqlite.py
+│   │   ├── 📄 schema_enhancement.py
+│   │   ├── 📄 schema_update_phase3.sql
 │   │   └── 📄 test_database.py
 │   ├── 📁 enhanced
 │   │   ├── 📄 __init__.py
@@ -109,7 +133,18 @@ Max Depth: 5
 │   ├── 📁 historical
 │   ├── 📁 streaming
 │   │   └── 📄 websocket_service.py
-│   └── 📄 marketpulse.db
+│   ├── 📄 complete_option_a_sqlite_production.py
+│   ├── 📄 complete_option_a_with_existing_postgres.py
+│   ├── 📄 data_fetcher.py
+│   ├── 📄 live_market_data_fetcher.py
+│   ├── 📄 marketpulse.db
+│   ├── 📄 multi_provider_data_system.py
+│   ├── 📄 postgresql_timescale_setup.py
+│   ├── 📄 production_database_migration.py
+│   ├── 📄 production_yahoo_integration.py
+│   ├── 📄 real_time_streaming_system.py
+│   ├── 📄 windows_db_utils.py
+│   └── 📄 yahoo_finance_integration.py
 ├── 📁 07_DASHBOARD
 │   ├── 📁 components
 │   │   ├── 📄 chart_components.py
@@ -119,11 +154,21 @@ Max Depth: 5
 │   │   ├── 📄 __init__.py
 │   │   └── 📄 enhanced_dashboard.py
 │   ├── 📁 pages
-│   └── 📄 dashboard_app.py
+│   ├── 📄 dashboard_app.py
+│   └── 📄 live_trading_dashboard.py
 ├── 📁 08_TESTS
-│   └── 📁 phase1_step3
-│       ├── 📄 __init__.py
-│       └── 📄 test_enhanced_strategies.py
+│   ├── 📁 phase1_step3
+│   │   ├── 📄 __init__.py
+│   │   └── 📄 test_enhanced_strategies.py
+│   ├── 📄 test_complete_real_model_integration.py
+│   ├── 📄 test_complete_real_model_integration_final.py
+│   ├── 📄 test_complete_system.py
+│   ├── 📄 test_integration_expanded.py
+│   ├── 📄 test_ml_signal_enhancer.py
+│   ├── 📄 test_phase3_live_trading_integration.py
+│   ├── 📄 test_reliability_basic.py
+│   ├── 📄 test_reliability_integration.py
+│   └── 📄 test_yahoo_integration.py
 ├── 📁 09_DOCS
 │   ├── 📁 context
 │   │   ├── 📄 context_summary.md
@@ -134,9 +179,13 @@ Max Depth: 5
 │   ├── 📁 alerts
 │   ├── 📁 backtest_results
 │   ├── 📁 logs
+│   ├── 📁 ml_reliability
+│   │   └── 📄 error_tracking.db
 │   ├── 📁 models
-│   └── 📁 paper_trading
-│       └── 📄 snapshot_20250918_183107.json
+│   ├── 📁 paper_trading
+│   │   └── 📄 snapshot_20250918_183107.json
+│   └── 📁 performance
+│       └── 📄 performance_metrics.db
 ├── 📁 data
 │   └── 📄 marketpulse.db
 ├── 📁 marketpulse.egg-info
@@ -149,52 +198,41 @@ Max Depth: 5
 │   ├── 📁 alpha_model
 │   │   └── 📄 alpha_core.py
 │   ├── 📄 __init__.py
+│   ├── 📄 advanced_mock_models.py
 │   ├── 📄 alpha_model.py
 │   ├── 📄 lstm_intraday.py
 │   ├── 📄 ml_signal_enhancer.py
+│   ├── 📄 real_alpha_model_integration.py
+│   ├── 📄 real_lstm_model_integration.py
 │   └── 📄 timeseries_forecaster.py
-├── 📄 api_key_validation_results_20250919_100014.csv
-├── 📄 api_key_validation_results_20250919_100014.md
-├── 📄 api_key_validation_results_20250919_100129.csv
-├── 📄 api_key_validation_results_20250919_100129.md
-├── 📄 api_key_validator_20250919_095529.log
-├── 📄 api_key_validator_20250919_095947.log
-├── 📄 api_key_validator_20250919_100054.log
+├── 📁 scripts
+│   └── 📄 deploy_phase3_production.py
 ├── 📄 change_log.md
-├── 📄 check_system_status.py
-├── 📄 diagnose_imports.py
-├── 📄 fix_database_cache.py
-├── 📄 fix_enhanced_imports.py
-├── 📄 git_setup_and_push.py
-├── 📄 hybrid_database_setup.py
 ├── 📄 integrated_trading_system_enhanced.py
 ├── 📄 main.py
 ├── 📄 marketpulse.db
 ├── 📄 marketpulse.log
 ├── 📄 marketpulse_backup.db
+├── 📄 marketpulse_backup_20250919_181135.db
+├── 📄 marketpulse_production.db
 ├── 📄 master_doc.md
-├── 📄 minimal_db_test.py
-├── 📄 minimal_test.py
-├── 📄 native_database_setup.py
+├── 📄 migration_report.json
 ├── 📄 next_sesssion.md
-├── 📄 organize_phase1_step3_files.py
+├── 📄 option_a_sqlite_completion_report.json
+├── 📄 PRODUCTION_DEPLOYMENT_GUIDE.md
 ├── 📄 project_structure.txt
-├── 📄 push_to_your_repo.py
-├── 📄 quick_db_test.py
-├── 📄 quick_enhanced_test.py
-├── 📄 quick_fix_imports.py
 ├── 📄 README.md
 ├── 📄 requirements.txt
 ├── 📄 setup.py
 ├── 📄 setup_database.py
 ├── 📄 show_structure.py
 ├── 📄 simple_ml_test.py
-├── 📄 test_marketpulse.db
-├── 📄 test_ml_integration.py
-├── 📄 test_report.json
+├── 📄 streaming_data.db
+├── 📄 test_marketpulse_final_1758279253.db
+├── 📄 test_phase3_live_trading.db
 ├── 📄 verify_bot.py
 └── 📄 verify_keys.py
 
 ==================================================
-Total items displayed: 188
+Total items displayed: 226
 Generated by Project Structure Generator
